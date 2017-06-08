@@ -6,7 +6,7 @@
 
 
 CardGroupView控件提供了以下方法：
-
+```
     /**
      * 移除顶部卡片(无动画)
      */
@@ -39,11 +39,11 @@ CardGroupView控件提供了以下方法：
     public void setLeftOrRightListener(LeftOrRight listener)
 
 
-
+```
 
 
 在Activity中设置CardGroupView并添加卡片：
-
+```
 package com.glh.cardview;
 
 import android.support.v7.app.AppCompatActivity;
@@ -118,3 +118,4 @@ public class MainActivity extends AppCompatActivity {
         return card;
     }
 }
+```
