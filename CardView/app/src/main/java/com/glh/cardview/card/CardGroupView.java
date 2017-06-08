@@ -299,6 +299,13 @@ public class CardGroupView extends RelativeLayout {
     }
 
     /**
+     * 当剩余卡片等于size时，加载更多
+     */
+    public void setloadSize(int size) {
+        this.mLoadSize = size;
+    }
+
+    /**
      * 加载更多监听
      *
      * @param listener {@link LoadMore}

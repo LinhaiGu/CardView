@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         mCardGroupView = (CardGroupView) findViewById(R.id.card);
+        mCardGroupView.setloadSize(3);
     }
 
     private void initEvent() {
@@ -53,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addCard() {
+        mCardGroupView.addView(getCard());
+        mCardGroupView.addView(getCard());
+        mCardGroupView.addView(getCard());
+        mCardGroupView.addView(getCard());
         mCardGroupView.addView(getCard());
         mCardGroupView.addView(getCard());
         mCardGroupView.addView(getCard());
