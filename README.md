@@ -33,7 +33,7 @@ CardGroupView控件提供了以下方法：
 
      /**
      * 左右滑动监听
-     *
+     * 
      * @param listener {@link LeftOrRight}
      */
     public void setLeftOrRightListener(LeftOrRight listener)
