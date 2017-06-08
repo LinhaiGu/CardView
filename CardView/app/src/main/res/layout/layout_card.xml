@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backgound">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="1dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/main1" />
+
+        <LinearLayout
+            android:id="@+id/rl_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="2dp"
+            android:background="#00000000">
+
+            <ImageView
+                android:id="@+id/homepage_scroller_stackview_imageview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="4dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/q1" />
+
+            <ImageView
+                android:id="@+id/homepage_scroller_stackview_imageview2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/q2" />
+
+            <ImageView
+                android:id="@+id/homepage_scroller_stackview_imageview3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/q3" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/remove"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentRight="true" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
