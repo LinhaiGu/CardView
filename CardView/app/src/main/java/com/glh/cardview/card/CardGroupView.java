@@ -47,7 +47,6 @@ public class CardGroupView extends RelativeLayout {
     public CardGroupView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.mContext = context;
-
     }
 
     @Override
@@ -105,10 +104,12 @@ public class CardGroupView extends RelativeLayout {
     OnTouchListener onTouchListener = new OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            if (mOnTouch) {
+            if (mOnTouch && v.equals(mCardList.get(0))) {
                 int rawY = (int) event.getRawY();
                 int rawX = (int) event.getRawX();
                 switch (event.getAction()) {
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        break;
                     case MotionEvent.ACTION_DOWN:
                         getLayout();
                         mLastY = (int) event.getRawY();
@@ -126,6 +127,7 @@ public class CardGroupView extends RelativeLayout {
                     case MotionEvent.ACTION_UP:
                         change();
                         break;
+
                 }
             }
             return true;
