@@ -109,8 +109,6 @@ public class CardGroupView extends RelativeLayout {
                 int rawY = (int) event.getRawY();
                 int rawX = (int) event.getRawX();
                 switch (event.getAction()) {
-                    case MotionEvent.ACTION_POINTER_DOWN:
-                        break;
                     case MotionEvent.ACTION_DOWN:
                         getLayout();
                         mLastY = (int) event.getRawY();
@@ -220,22 +218,34 @@ public class CardGroupView extends RelativeLayout {
      * @param left 是否向左滑出
      */
     private void out(boolean left) {
-        CardIndex oldCardIndex;
-        CardIndex newCardIndex;
         if (left) {
             /*
             向左滑出
              */
-            oldCardIndex = new CardIndex(-mCardRight, mCardTop, 0, mCardBottom);
-            newCardIndex = new CardIndex(mCardList.get(0).getLeft(), mCardList.get(0).getTop(), mCardList.get(0).getRight(), mCardList.get(0).getBottom());
+            leftOut();
         } else {
             /*
             向右滑出
              */
-            oldCardIndex = new CardIndex(DensityUtil.getDisplayMetrics(mContext).widthPixels, mCardTop, DensityUtil.getDisplayMetrics(mContext).widthPixels + (mCardRight - mCardLeft), mCardBottom);
-            newCardIndex = new CardIndex(mCardList.get(0).getLeft(), mCardList.get(0).getTop(), mCardList.get(0).getRight(), mCardList.get(0).getBottom());
+            rightOut();
         }
+    }
 
+    /**
+     * 左滑出
+     */
+    private void leftOut() {
+        CardIndex oldCardIndex = new CardIndex(-mCardRight, mCardTop, 0, mCardBottom);
+        CardIndex newCardIndex = new CardIndex(mCardList.get(0).getLeft(), mCardList.get(0).getTop(), mCardList.get(0).getRight(), mCardList.get(0).getBottom());
+        animator(newCardIndex, oldCardIndex);
+    }
+
+    /**
+     * 右滑出
+     */
+    private void rightOut() {
+        CardIndex oldCardIndex = new CardIndex(DensityUtil.getDisplayMetrics(mContext).widthPixels, mCardTop, DensityUtil.getDisplayMetrics(mContext).widthPixels + (mCardRight - mCardLeft), mCardBottom);
+        CardIndex newCardIndex = new CardIndex(mCardList.get(0).getLeft(), mCardList.get(0).getTop(), mCardList.get(0).getRight(), mCardList.get(0).getBottom());
         animator(newCardIndex, oldCardIndex);
     }
 
