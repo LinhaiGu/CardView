@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         mCardGroupView = (CardGroupView) findViewById(R.id.card);
-        mCardGroupView.setloadSize(3);
+        mCardGroupView.setLoadSize(3);
+        mCardGroupView.setMargin(0.15);
     }
 
     private void initEvent() {

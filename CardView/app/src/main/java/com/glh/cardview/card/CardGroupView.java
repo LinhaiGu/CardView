@@ -35,6 +35,7 @@ public class CardGroupView extends RelativeLayout {
     private LoadMore mLoadMore;
     //左右滑动监听器
     private LeftOrRight mLeftOrRight;
+    private double margin = 0.10;
 
     public CardGroupView(Context context) {
         this(context, null);
@@ -73,12 +74,12 @@ public class CardGroupView extends RelativeLayout {
      */
     private void setLayoutParams(View card, int index) {
         LayoutParams params = new LayoutParams(card.getLayoutParams());
-        params.topMargin = (int) (DensityUtil.getDisplayMetrics(mContext).heightPixels * 0.1) + getResources().getDimensionPixelSize(
+        params.topMargin = (int) (DensityUtil.getDisplayMetrics(mContext).heightPixels * margin) + getResources().getDimensionPixelSize(
                 R.dimen.card_item_margin) * index;
-        params.bottomMargin = (int) (DensityUtil.getDisplayMetrics(mContext).heightPixels * 0.1) - getResources().getDimensionPixelSize(
+        params.bottomMargin = (int) (DensityUtil.getDisplayMetrics(mContext).heightPixels * margin) - getResources().getDimensionPixelSize(
                 R.dimen.card_item_margin) * index;
-        params.leftMargin = (int) (DensityUtil.getDisplayMetrics(mContext).widthPixels * 0.1);
-        params.rightMargin = (int) (DensityUtil.getDisplayMetrics(mContext).widthPixels * 0.1);
+        params.leftMargin = (int) (DensityUtil.getDisplayMetrics(mContext).widthPixels * margin);
+        params.rightMargin = (int) (DensityUtil.getDisplayMetrics(mContext).widthPixels * margin);
         card.setLayoutParams(params);
     }
 
@@ -303,8 +304,17 @@ public class CardGroupView extends RelativeLayout {
     /**
      * 当剩余卡片等于size时，加载更多
      */
-    public void setloadSize(int size) {
+    public void setLoadSize(int size) {
         this.mLoadSize = size;
+    }
+
+    /**
+     * 距离左右上下边距的边距（屏幕宽度的百分比）
+     *
+     * @param margin 屏幕宽度的百分比
+     */
+    public void setMargin(double margin) {
+        this.margin = margin;
     }
 
     /**
